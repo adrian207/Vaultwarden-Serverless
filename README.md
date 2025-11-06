@@ -420,6 +420,68 @@ For security issues, please email security@example.com (do not open public issue
 
 ## 🎉 **ALL ROADMAP ITEMS COMPLETE!**
 
+## Future Features Roadmap
+
+The core platform is complete. Here are the top 3 recommended features to transform Vaultwarden into an enterprise security platform:
+
+### 🥇 #1: DevOps Secrets Management
+**API-first secrets management competitive with HashiCorp Vault at 10% of the cost**
+
+**Key Features:**
+- Secrets API with service accounts
+- Automatic secret rotation
+- CI/CD integration (GitHub Actions, GitLab CI)
+- Kubernetes secrets operator
+- Developer CLI tool
+- Secret scanning and migration
+
+**Value:** $100k+/year savings vs HashiCorp Vault Enterprise  
+**Timeline:** 6-8 weeks | **Investment:** $30k-50k  
+📖 **[Complete Implementation Guide](docs/features/DEVOPS_SECRETS_MANAGEMENT.md)**
+
+---
+
+### 🥈 #2: Compliance Automation Platform
+**Automated SOC 2/ISO 27001 evidence collection and monitoring**
+
+**Key Features:**
+- Automated evidence collection from multiple sources
+- Real-time compliance dashboard
+- Continuous control testing
+- Auto-generated audit reports
+- Integration with Vanta/Drata/Secureframe
+
+**Value:** 80% reduction in compliance effort, audit-ready in 2 weeks vs 3 months  
+**Timeline:** 8-10 weeks | **Investment:** $45k-70k  
+📖 **[Complete Implementation Guide](docs/features/COMPLIANCE_AUTOMATION.md)**
+
+---
+
+### 🥉 #3: Passwordless Authentication
+**WebAuthn/FIDO2 hardware keys and biometric authentication**
+
+**Key Features:**
+- Hardware security key support (YubiKey, Titan)
+- Platform authenticators (Face ID, Touch ID, Windows Hello)
+- Passkey support (sync across devices)
+- Migration wizard from master password
+
+**Value:** Eliminate master password vulnerabilities, 10x faster login  
+**Timeline:** 3-4 weeks | **Investment:** $10k-20k  
+📖 **[Complete Implementation Guide](docs/features/PASSWORDLESS_AUTHENTICATION.md)**
+
+---
+
+### 📊 Combined Impact
+- **Total Timeline:** 17-22 weeks (4-6 months)
+- **Total Investment:** $85k-140k
+- **ROI:** $150k+/year savings + enterprise sales enablement
+- **Break-Even:** 8-15 months
+
+📖 **[Complete Feature Roadmap & Strategy](docs/features/FEATURE_ROADMAP.md)**
+
+---
+
 ## Support
 
 - Documentation: [docs/](docs/)

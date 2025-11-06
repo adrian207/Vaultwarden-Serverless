@@ -1,0 +1,62 @@
+# AWS Vaultwarden Deployment Configuration
+# Author: Adrian Johnson <adrian207@gmail.com>
+#
+# Copy this file to terraform.tfvars and customize for your deployment
+
+# General Configuration
+project_name = "vaultwarden"
+environment  = "prod"
+aws_region   = "us-east-1"
+
+# Networking
+availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+vpc_cidr          = "10.0.0.0/16"
+
+# Domain and SSL
+# IMPORTANT: Create ACM certificate FIRST:
+# aws acm request-certificate --domain-name vault.example.com --validation-method DNS
+domain_name     = "vault.example.com"
+certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/your-cert-id"
+
+# Container Configuration
+vaultwarden_image = "vaultwarden/server:latest"
+container_cpu     = 512   # 0.5 vCPU
+container_memory  = 1024  # 1 GB
+desired_count     = 2
+min_capacity      = 1
+max_capacity      = 10
+
+# Database Configuration
+database_name     = "vaultwarden"
+database_username = "vaultwarden_admin"
+db_min_capacity   = 0.5  # Minimum ACUs (scales to zero when idle)
+db_max_capacity   = 4    # Maximum ACUs (4 ACUs = ~8 GB RAM)
+
+# Vaultwarden Settings
+signups_allowed      = "false"  # Set to "true" initially, then disable after account creation
+invitations_allowed  = "true"
+
+# SMTP Configuration (optional but recommended)
+smtp_host     = "smtp.gmail.com"
+smtp_port     = 587
+smtp_from     = "vaultwarden@example.com"
+smtp_security = "starttls"
+smtp_password = ""  # Set via environment variable: export TF_VAR_smtp_password="your-password"
+
+# Backup and Retention
+backup_retention_days = 30
+log_retention_days    = 30
+
+# Security Features
+enable_waf        = true
+enable_cloudfront = false  # Set to true for global CDN (adds ~$5-10/month)
+
+# Monitoring
+alarm_sns_topic_arn = ""  # Optional: SNS topic for alerts
+
+# Tags
+additional_tags = {
+  CostCenter = "IT"
+  Owner      = "Adrian Johnson"
+}
+

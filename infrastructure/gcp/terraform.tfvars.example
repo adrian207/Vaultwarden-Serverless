@@ -1,0 +1,36 @@
+# GCP Vaultwarden Deployment Configuration
+# Author: Adrian Johnson <adrian207@gmail.com>
+
+project_id   = "your-gcp-project-id"
+region       = "us-central1"
+project_name = "vaultwarden"
+environment  = "prod"
+
+# Domain
+domain_name = "vault.example.com"
+
+# Container Configuration
+container_image  = "vaultwarden/server:latest"
+container_cpu    = "1"     # 1 vCPU
+container_memory = "512Mi" # 512 MB
+
+# Scaling
+min_instances = 0  # Scale to zero when idle
+max_instances = 10
+
+# Database
+database_name         = "vaultwarden"
+database_username     = "vaultwarden_admin"
+db_tier               = "db-f1-micro"     # Smallest tier: ~$7/month
+db_high_availability  = false             # Set true for production: +$50/month
+backup_retention_days = 30
+
+# Vaultwarden Settings
+signups_allowed     = "false"
+invitations_allowed = "true"
+
+# Security
+enable_public_access = true
+enable_cloud_armor   = true
+deletion_protection  = true
+
